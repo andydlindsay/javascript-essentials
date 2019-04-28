@@ -282,6 +282,9 @@ body {
 .neg-margin-top {
   margin-top: -15px; }
 
+.margin-top {
+  margin-top: 50px; }
+
 .reveal p {
   font-weight: 300;
   text-shadow: 1px 1px #222; }
