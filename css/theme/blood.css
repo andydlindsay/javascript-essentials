@@ -272,6 +272,16 @@ body {
   .backgrounds {
     background-color: #222; } }
 
+/*********************************************
+ * CUSTOM STYLES
+ *********************************************/
+.display-block {
+  display: block !important;
+  margin: auto; }
+
+.neg-margin-top {
+  margin-top: -15px; }
+
 .reveal p {
   font-weight: 300;
   text-shadow: 1px 1px #222; }

@@ -325,3 +325,15 @@ body {
         background-color: $backgroundColor;
     }
 }
+
+/*********************************************
+ * CUSTOM STYLES
+ *********************************************/
+.display-block {
+    display: block !important;
+    margin: auto;
+}
+
+.neg-margin-top {
+    margin-top: -15px;
+}

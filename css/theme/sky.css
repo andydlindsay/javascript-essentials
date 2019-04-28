@@ -275,3 +275,13 @@ body {
 @media print {
   .backgrounds {
     background-color: #f7fbfc; } }
+
+/*********************************************
+ * CUSTOM STYLES
+ *********************************************/
+.display-block {
+  display: block !important;
+  margin: auto; }
+
+.neg-margin-top {
+  margin-top: -15px; }

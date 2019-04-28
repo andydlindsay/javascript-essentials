@@ -1,9 +1,13 @@
 <!doctype html>
 <html>
 	<head>
-        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta charset="utf-8">
+        
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
         <title>JavaScript Essentials</title>
         
@@ -13,7 +17,7 @@
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/sky.css">
+        <link rel="stylesheet" href="css/theme/sky.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/monokai.css">
@@ -25,7 +29,7 @@
 			link.type = 'text/css';
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+        </script>
 	</head>
 	<body>
 		<div class="reveal">
@@ -34,7 +38,7 @@
                 <!-- Slide 1 -->
                 <section>
                     <img src="https://s3.amazonaws.com/thinkific/site_themes/logo_000/034/661/1486428574.medium.png?1486428574"
-                            alt="Ladies Learning Code logo">
+                            alt="Lighthouse Labs logo">
                 
                     <div class="instructions">
                         <!-- ADD WIFI INFO HERE -->
@@ -48,7 +52,7 @@
                 <section>
                     <img src="https://s3.amazonaws.com/thinkific/file_uploads/34662/images/5be/c05/5ec/javascript-banner.jpg" alt="Javascript Essentials">
                     <footer>
-                        <small class="left">Slides created by <a target="_blank" href="https://andydlindsay.github.io/">Andy
+                        <small>Slides created by <a target="_blank" href="https://andydlindsay.github.io/">Andy
                                 Lindsay</a>.</small>
                         <small>Content created by David VanDusen for <a target="_blank" href="https://www.lighthouselabs.ca/">Lighthouse
                                 Labs</a>.</small>
@@ -64,13 +68,37 @@
                 <section>
                     <h3>Introductions</h3>
 
-                    <aside class="notes">
-                        Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker
-                        notes window (hit 's' on your keyboard).
+                    <aside class="notes" data-markdown>
+                        * Introduce lecturer and mentors.
                     </aside>
                 </section>
 
-                <section>Lighthouse</section>
+                <!-- Slide 4 -->
+                <section>
+                    <img class="display-block" src="https://s3.amazonaws.com/thinkific/site_themes/logo_000/034/661/1486428574.medium.png?1486428574"
+                        alt="Lighthouse Labs logo">
+
+                    <p class="fragment" data-notes="We're Lighthouse Labs (👋), a Canadian software development school aiming to change the way tech education is being delivered. Our goal is to find the best ways to train the next generation of developers and to empower everyone to take ownership over their digital literacy.">Who are we?</p>
+                    <p class="fragment" data-notes="We offer in-person courses in web or iOS development in seven Canadian cities, with a ton of hands-on experience and access to mentorship from seasoned Developers in your community. Our courses provide people with data-driven curriculum covering modern languages and frameworks that are essential for those working in the technology industry.">How do we do that?</p>
+
+                    <div class="fragment" data-notes="The goal of our Bootcamps are to transform you into a professional Developer. You’ll come to understand coding logic using popular languages and frameworks, while learning how to think like a programmer by building software from the ground up. Bootcamp will provide you with mentorship, data-driven curriculum, and a top notch learning environment that will help launch you into your first Junior Developer role.">
+                        <p>Full-time Immersive Bootcamps</p>
+                        <small>Web or iOS Development Bootcamp</small>
+                    </div>
+                    
+                    <div class="fragment neg-margin-top" data-notes="These courses are focused on equipping you with tools that apply directly to professional web or iOS development. You'll learn what goes in to creating and deploying apps and will gain a solid understanding of the fundamentals of programming. This course is an excellent option for anyone looking to discover if they want to become a Developer, to learn to communicate with a dev team or to gain valuable coding experience for a hybrid technical role.">
+                        <p>Part-time Courses</p>
+                        <small>Front End Fundamentals with Javascript, Intro to Web or Intro to iOS Development</small>
+                    </div>
+
+                    <div class="fragment neg-margin-top" data-notes="🚀 In addition to our courses, we often host free workshops (like this one!) and other events geared towards new coders.">
+                        <p>Workshops and Events</p>
+                    </div>
+
+                    <aside class="notes" data-markdown>
+                        * And one more introduction...
+                    </aside>
+                </section>
                 
                 <section>The Goal/Finished App</section>
 
