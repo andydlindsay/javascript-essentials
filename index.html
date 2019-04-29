@@ -788,9 +788,211 @@
                     </aside>
                 </section>
 
-                <section>Install express</section>
+                <!-- Slide 17 -->
+                <section>
+                    
+                    <!-- Slide 17.1 -->
+                    <section>
+                        <h3>Web Server Pt1</h3>
+                        <ol>
+                            <li>
+                                <div>
+                                    <p>Initialize the folder.</p>
+                                    <pre>
+                                        <code class="bash" data-trim contenteditable style="font-size: 18px;">
+                                            npm init -y
+                                        </code>
+                                    </pre>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="fragment" data-notes="Let's install and save the Express library into our project by running npm install express. This downloads some code using the Node Package Manager (NPM) that we can use to make our lives easier.">
+                                    <p>Install Express.</p>
+                                    <pre>
+                                        <code class="bash" data-trim contenteditable style="font-size: 18px;">
+                                            npm install express
+                                        </code>
+                                    </pre>
+                                </div>
+                            </li>
+                        </ol>
+                        
+                        <aside class="notes" data-markdown>
+                            * Let's make sure our folder is ready to work with other libraries.
+                            * We do this by initializing our folder by typing npm init -y into the command prompt.
+                            * Once this command runs, you will simply notice a new file package.json in your folder.
+                        </aside>
+                    </section>
 
+                    <!-- Slide 17.2 -->
+                    <section>
+                        <h3>Web Server Pt2</h3>
+                        <ol start="3">
+                            <li>
+                                <div>
+                                    <p>Add this code to server.js.</p>
+                                    <pre>
+                                        <code class="javascript" data-trim contenteditable data-line-numbers style="font-size: 16px; line-height: 18px;">
+                                            var express = require('express');
+                                            var app = express();
+                                            
+                                            var http = require('http');
+                                            var server = http.Server(app);
+                                            
+                                            app.use(express.static('client'));
+                                            
+                                            server.listen(8080, function() {
+                                                console.log('Chat server running');
+                                            });
+                                        </code>
+                                    </pre>
+                                </div>
+                            </li>
+                        </ol>
+                    
+                        <aside class="notes" data-markdown>
+                            * Now we can start using it.
+                            * Type out the following JavaScript code into the server.js file.
+                        </aside>
+                    </section>
+
+                    <!-- Slide 17.3 -->
+                    <section>
+                        <h3>Web Server Pt3</h3>
+                        <h4>Code Explanation</h4>
+                        <pre>
+                            <code class="javascript" data-trim contenteditable data-line-numbers="1-5" style="font-size: 16px; line-height: 18px;">
+                                var express = require('express');
+                                var app = express();
+                                
+                                var http = require('http');
+                                var server = http.Server(app);
+                                
+                                app.use(express.static('client'));
+                                
+                                server.listen(8080, function() {
+                                    console.log('Chat server running');
+                                });
+                            </code>
+                        </pre>
+                        <ul>
+                            <li>
+                                <p>Load external modules with require('name-of-module').</p>
+                            </li>
+                        </ul>
+                    
+                        <aside class="notes" data-markdown>
+                            * So a bunch of new code and syntax was just introduced there. Let's attempt to break it down.
+                            * The first few lines are just loading external modules.
+                            * And then setting up the express server.
+                        </aside>
+                    </section>
+
+                    <!-- Slide 17.4 -->
+                    <section>
+                        <h3>Web Server Pt4</h3>
+                        <h4>Code Explanation</h4>
+                        <pre>
+                            <code class="javascript" data-trim contenteditable data-line-numbers="7" style="font-size: 16px; line-height: 18px;">
+                                var express = require('express');
+                                var app = express();
+                                
+                                var http = require('http');
+                                var server = http.Server(app);
+                                
+                                app.use(express.static('client'));
+                                
+                                server.listen(8080, function() {
+                                    console.log('Chat server running');
+                                });
+                            </code>
+                        </pre>
+                        <ul>
+                            <li>
+                                <p>Serve static content with express.static('path-to-folder')</p>
+                            </li>
+                        </ul>
+                    
+                        <aside class="notes" data-markdown>
+                            * We then tell the Express app to serve all static content from the client folder.
+                        </aside>
+                    </section>
+
+                    <!-- Slide 17.5 -->
+                    <section>
+                        <h3>Web Server Pt5</h3>
+                        <h4>Code Explanation</h4>
+                        <pre>
+                            <code class="javascript" data-trim contenteditable data-line-numbers="9-11" style="font-size: 16px; line-height: 18px;">
+                                var express = require('express');
+                                var app = express();
+                                
+                                var http = require('http');
+                                var server = http.Server(app);
+                                
+                                app.use(express.static('client'));
+                                
+                                server.listen(8080, function() {
+                                    console.log('Chat server running');
+                                });
+                            </code>
+                        </pre>
+                        <ul>
+                            <li>
+                                <p>Tell the server to listen on a port with server.listen(portNumber)</p>
+                            </li>
+                        </ul>
+                    
+                        <aside class="notes" data-markdown>
+                            * When all the setup work is done, we then tell the server to listen in on a certain port (in this case 8080).
+                            * So for now it's a simple web server serving only static (HTML, CSS and JavaScript) files to any HTTP/Web traffic coming its way.
+                        </aside>
+                    </section>
+
+                    <!-- Slide 17.6 -->
+                    <section>
+                        <h3>Web Server Pt6</h3>
+                        <ol start="4">
+                            <li>
+                                <div>
+                                    <p>Start the server.</p>
+                                    <pre>
+                                        <code class="bash" data-trim contenteditable style="font-size: 16px; line-height: 18px;">
+                                            node server.js
+                                        </code>
+                                    </pre>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="fragment" data-notes="Now visit http://localhost:8080 in your Web browser.">
+                                    <p>Visit http://localhost:8080 in your browser.</p>
+                                </div>
+                            </li>
+                        </ol>
+                    
+                        <aside class="notes" data-markdown>
+                            * Let's try it out by running it using the same command as before: node server.js.
+                        </aside>
+                    </section>
+
+                    <!-- Slide 17.7 -->
+                    <section>
+                        <h3>Web Server Pt7</h3>
+                        <div style="width: 800px; height: 400px; margin: auto; background: none;">
+                            <iframe style="width: 100%; height: 100%;" src="http://localhost:8080"></iframe>
+                        </div>
+                        
+                        <aside class="notes" data-markdown>
+                            * It will bring up the chat app page just like before, with no new functionality.
+                            * The send button should be working as before, too!
+                        </aside>
+                    </section>
+
+                </section>
+
+                <!-- Slide 18 -->
                 <section>Web Sockets</section>
+
                 <section>Wire up socket connection</section>
 
                 <section>Complete App</section>
