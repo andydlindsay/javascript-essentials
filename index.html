@@ -412,16 +412,251 @@
                 </section>
 
                 <!-- Slide 13 -->
-                <section>Client Side JS</section>
-                
-                <section>What is jQuery?</section>
-                <section>Wire up message submit button</section>
+                <section>
 
+                    <!-- Slide 13.1 -->
+                    <section>
+                        <h3>Client Side JS Pt1</h3>
+                        <ol>
+                            <li>
+                                <div>
+                                    <p>Create a file called app.js.</p>
+                                    <pre>
+                                        <code class="bash" data-trim contenteditable style="font-size: 18px;">
+                                            touch app.js
+                                        </code>
+                                    </pre>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="fragment" data-notes="Much like with the CSS, we need to link our new .js code with our web page, our .html file. Add the following tags to the bottom of the HTML file. Now whenever you refresh/load the web page, it will reference two separate JS files for the browser to download (at the end), one of which is external (3rd party) to our application. This 3rd party library called jQuery is there to make life easier. We don't need it, but with it we can write less code. This is why most websites use jQuery or other libraries like it.">
+                                    <p>Add these tags to the bottom of index.html.</p>
+                                    <pre>
+                                        <code class="html" data-trim contenteditable style="font-size: 16px; line-height: 18px" data-line-numbers="2,3">
+                                                &lt;/main&gt;
+                                                &lt;script src=&quot;https://code.jquery.com/jquery-3.1.1.js&quot;&gt;&lt;/script&gt;
+                                                &lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;
+                                            &lt;/body&gt;
+                                            &lt;/html&gt;
+                                        </code>
+                                    </pre>
+                                </div>
+                            </li>
+                        </ol>
+
+                        <aside class="notes" data-markdown>
+                            * Just like we created style.css to hold all of our styles, we are going to create app.js to hold our JavaScript.
+                            * Make sure it's in the same directory as index.html and style.css.
+                        </aside>
+                    </section>
+
+                    <!-- Slide 13.2 -->
+                    <section>
+                        <h3>Client Side JS Pt2</h3>
+                        <ol start="3">
+                            <li>
+                                <div>
+                                    <p>Add this code to app.js.</p>
+                                    <pre>
+                                        <code class="javascript" data-trim contenteditable data-line-numbers style="font-size: 18px;">
+                                            alert('hello from the JS file');
+                                        </code>
+                                    </pre>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="fragment"
+                                    data-notes="When the page loads you should see an alert pop up that says your message. alert is a built in function that all browsers support, even though they may look slightly different on each browser. I'm guessing it's not your first time seeing one, so now you know how they happen.">
+                                    <p>Refresh your index.html.</p>
+                                    <img style="padding: 0px; margin-top: -25px;" src="https://github.com/jugonzal/gitbook-node-chat-tutorial/raw/master/assets/alert.png" alt="alert popup">
+                                </div>
+                            </li>
+                        </ol>
+
+                        <aside class="notes" data-markdown>
+                            * Now let's add some JavaScript code to our app.js file.
+                            * Save the file and refresh your index.html.
+                        </aside>
+                    </section>
+
+                    <!-- Slide 13.3 -->
+                    <section>
+                        <h3>Client Side JS Pt3</h3>
+                        <h4>Functions</h4>
+                        <pre>
+                            <code class="javascript" data-trim contenteditable data-line-numbers style="font-size: 18px;">
+                                alert('hello from the JS file');
+                            </code>
+                        </pre>
+                        <ul>
+                            <li>
+                                <p>Call or invoke a function by putting parenteses () after it</p>
+                            </li>
+                            <li>
+                                <p>Similar to math functions</p>
+                            </li>
+                            <li>
+                                <p>Take in some values, do some crunching, and give you back a computed value or some behaviour</p>
+                            </li>
+                        </ul>
+
+                        <aside class="notes" data-markdown>
+                            * Any time you call a function in JS you have to use parentheses () after it, and within the brackets you put in data that you want to give the function.
+                            * Programming functions are much like math functions.
+                            * They take in values and can do some crunching and give you back a computed value, or in this case, give you back some behaviour like popup that message you passed into it.
+                        </aside>
+                    </section>
+
+                    <!-- Slide 13.4 -->
+                    <section>
+                        <h3>Client Side JS Pt4</h3>
+                        <ol start="5">
+                            <li>
+                                <div>
+                                    <p>Add this code to app.js.</p>
+                                    <pre>
+                                        <code class="javascript" data-trim contenteditable data-line-numbers style="font-size: 16px; line-height: 18px;">
+                                            $('form').on('submit',function () {
+                                                var text = $('#message').val();
+                                                alert(text);
+                                                return false;
+                                            });
+                                        </code>
+                                    </pre>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="fragment" data-notes="Save the file, and refresh the HTML page. Put some text into the second field and hit Enter or click Send. You should see it echoed back to you in an alert message. If not, raise your hand so that a mentor can help you.">
+                                    <p>Refresh index.html.</p>
+                                    <img style="margin: auto;" src="https://github.com/jugonzal/gitbook-node-chat-tutorial/raw/master/assets/working-alert.png" width="40%" alt="alert popup">
+                                </div>
+                            </li>
+                        </ol>
+
+                        <aside class="notes" data-markdown>
+                            * Remove the alert code and let's get down to business.
+                            * We want to make it so when our form is submitted (via enter key or by clicking the send button) we read the text content of the input field (with id="message" in the HTML file) and do something with it.
+                            * For now let's just alert it.
+                        </aside>
+                    </section>
+
+                    <!-- Slide 13.5 -->
+                    <section>
+                        <h3>Client Side JS Pt5</h3>
+                        <h4>Code Explanation</h4>
+                        <pre>
+                            <code class="javascript" data-trim contenteditable data-line-numbers="1,5" style="font-size: 16px; line-height: 18px;">
+                                $('form').on('submit',function () {
+                                    var text = $('#message').val();
+                                    alert(text);
+                                    return false;
+                                });
+                            </code>
+                        </pre>
+                        <ul>
+                            <li>
+                                <p>Access jQuery with the dollar sign $</p>
+                            </li>
+                            <li>
+                                <p>Target the form element with $('form')</p>
+                            </li>
+                            <li>
+                                <p>Listen for an event with .on('name of event')</p>
+                            </li>
+                            <li>
+                                <p>.on is a function that accepts another function as a parameter</p>
+                            </li>
+                        </ul>
+
+                        <aside class="notes" data-markdown>
+                            * This code isn't doing too much, but it does need to be reviewed before we move on.
+                            * First, we use jQuery using the $ function, telling it that we want to target all form elements on the page.
+                            * There is only one form element on the page and it is the one at the bottom which contains both input fields and the button.
+                            * We then call/invoke another function called on on that returned form element, saying that we want to be notified anytime that a very specific event takes place.
+                            * In this case the event we care about is submit.
+                            * Asking to be notified when a given event takes place and waiting for it to happen is a very popular programming paradigm called event-driven programming.
+                            * Once the event takes place, we will be notified via our own custom function.
+                            * That's right, on is a function that accepts another function as a parameter.
+                            * Remember that we pass in data into functions within the parentheses ().
+                            * They're not on the same line, but they are there.
+                            * This part may be a bit confusing, if you walk to talk it over with someone, raise your hand.
+                        </aside>
+                    </section>
+
+                    <!-- Slide 13.6 -->
+                    <section>
+                        <h3>Client Side JS Pt6</h3>
+                        <h4>Code Explanation</h4>
+                        <pre>
+                            <code class="javascript" data-trim contenteditable data-line-numbers="2,3" style="font-size: 16px; line-height: 18px;">
+                                $('form').on('submit',function () {
+                                    var text = $('#message').val();
+                                    alert(text);
+                                    return false;
+                                });
+                            </code>
+                        </pre>
+                        <ul>
+                            <li>
+                                <p>The rest of the code is indented so we know it's inside a function</p>
+                            </li>
+                            <li>
+                                <p>Capture the text value of an HTML element with the id of "message"</p>
+                            </li>
+                            <li>
+                                <p>Then pass that text to the alert function</p>
+                            </li>
+                        </ul>
+                    
+                        <aside class="notes" data-markdown>                    
+                            * Inside our function, the rest of the code is indented so that we know that it is within that function, just
+                            like we nest HTML tags with indentation.
+                            * Make sure your code is indented correctly because improper indentation is a big source of confusion.
+                            * This inside code is capturing the text value of the HTML element with the ID message and then passing it to
+                            alert so that we can see it.
+                            * Lastly, the return false is there to tell the browser to cancel the original form submission logic (which is
+                            to attempt sending the form to the server, with loading spinner and everything).
+                            * This is common practice when adding custom behaviour to forms like we are doing here.
+                        </aside>
+                    </section>
+
+                    <!-- Slide 13.7 -->
+                    <section>
+                        <h3>Client Side JS Pt7</h3>
+                        <h4>Code Explanation</h4>
+                        <pre>
+                            <code class="javascript" data-trim contenteditable data-line-numbers="4" style="font-size: 16px; line-height: 18px;">
+                                $('form').on('submit',function () {
+                                    var text = $('#message').val();
+                                    alert(text);
+                                    return false;
+                                });
+                            </code>
+                        </pre>
+                        <ul>
+                            <li>
+                                <p>Return false to tell the browser to cancel the form submission</p>
+                            </li>
+                        </ul>
+                    
+                        <aside class="notes" data-markdown>
+                            * Lastly, the return false is there to tell the browser to cancel the original form submission logic (which is
+                            to attempt sending the form to the server, with loading spinner and everything).
+                            * This is common practice when adding custom behaviour to forms like we are doing here.
+                        </aside>
+                    </section>
+
+                </section>
+
+                <!-- Slide 14 -->
                 <section>Server Side JS</section>
+                
                 <section>Node</section>
                 <section>Create server.js</section>
+
                 <section>Express</section>
                 <section>Install express</section>
+
                 <section>Web Sockets</section>
                 <section>Wire up socket connection</section>
 
