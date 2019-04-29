@@ -1221,10 +1221,88 @@
                 </section>
 
                 <!-- Slide 21 -->
-                <section>Stretch Features</section>
+                <section>
+                    <h3>Enhancements As Challenges</h3>
+                    <ol>
+                        <li>
+                            <div class="fragment" data-notes="The initials input field (the first input box) is not being used at all. Modify the app.js so that it sends (emits) the text as something like 'DV says: hello' where 'DV' is from the first input field (with id='initials') and 'hello' is from the message field.">
+                                <p>Modify app.js so that it emits the initials field as well.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="fragment" data-notes="The initials input field is actually meant to be 2 letter initials only. Make it so only a maximum of two characters can be entered into that field. Hint: Google 'html input field maximum length' for a convenient HTML attribute that can be added to your HTML file.">
+                                <p>Make it so only a maximum of two characters can be entered into initials field.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="fragment" data-notes="It would be nice to see the message history on the server anytime you join the chat room. Unfortunately, we don't keep/store a message history on the server at all. One way to do this is to create an empty array that stores the messages. Then, whenever a message is received on the server, it can push (append) that message string into the array. Then whenever a user (new socket) connects to the server, (on connection) the server could iterate over all the messages in the array and emit them to that new client/socket.">
+                                <p>Add a list of all previous messages.</p>
+                            </div>
+                        </li>
+                    </ol>
 
-                <section>Review</section>
-                <section>Continue Your Learning</section>
+                    <aside class="notes" data-markdown>
+                        * Want to take your code a little further?
+                        * You may have noticed some bugs or missing features with this app.
+                    </aside>
+                </section>
+
+                <!-- Slide 22 -->
+                <section>
+                    <h3>Review</h3>
+                    <ul>
+                        <li>
+                            <div class="fragment" data-notes="We started with a review of HTML and CSS and used them to form the strucutre of our application.">
+                                <p>HTML & CSS</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="fragment" data-notes="We then used jQuery to add some functionality to the client side.">
+                                <p>jQuery</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="fragment" data-notes="Then we talked about JavaScript on the server being possible because of Node.">
+                                <p>Node</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="fragment" data-notes="Then we installed Express and used it to set up a basic web server.">
+                                <p>Express</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="fragment" data-notes="And finally we added real-time functionality to our app using Socket.IO to create web socket connections between clients and the server.">
+                                <p>Socket.IO</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <aside class="notes" data-markdown>
+                        * Let's quickly review what we learned today.
+                    </aside>
+                </section>
+
+                <!-- Slide 23 -->
+                <section>
+                    <h3>Continuing Your Learning</h3>
+                    <ul>
+                        <li>
+                            <div class="fragment" data-notes="Consider taking the Lighthouse Labs Prep Course. Our prep course covers the foundation that is necessary for students to hit the ground running on day one! The prep material consists of some of our favourite resources paired with curriculum created by the Lighthouse Labs education team. If you're looking to dive deeper into Web or iOS development or get a better idea of what taking our Bootcamp will entail, this is a great place to start.">
+                                <p>Lighthouse Labs Prep Course</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="fragment" data-notes="There are several courses like this one at lighthouse-labs.thinkific.com. These courses cover topics such as HTML & CSS, JavaScript, and Python. These courses are completely free.">
+                                <p><a href="http://lighthouse-labs.thinkific.com/">http://lighthouse-labs.thinkific.com/</a></p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <aside class="notes" data-markdown>
+                        * If you found this course of interest and you'd like to explore JavaScript further...
+                    </aside>
+                </section>
 
 			</div> <!-- .slides -->
 		</div> <!-- .reveal -->
