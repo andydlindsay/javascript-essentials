@@ -8,7 +8,8 @@
   "scripts": {
     "test": "grunt test",
     "start": "grunt serve",
-    "build": "grunt"
+    "build": "grunt",
+    "requirements-check": "node check-version.js"
   },
   "author": {
     "name": "Hakim El Hattab",
@@ -20,8 +21,9 @@
     "url": "git://github.com/hakimel/reveal.js.git"
   },
   "engines": {
-    "node": ">=9.0.0"
+    "node": "10.15.1"
   },
+  "engineStrict": true,
   "devDependencies": {
     "express": "^4.16.2",
     "grunt": "^1.0.4",
@@ -40,5 +42,9 @@
     "node-sass": "^4.11.0",
     "socket.io": "^2.2.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@types/semver": "^6.0.0",
+    "semver": "^6.0.0"
+  }
 }
