@@ -176,9 +176,133 @@
                 </section>
 
                 <!-- Slide 9 -->
-                <section>Set up the boilerplate</section>
+                <section>
 
-                <section>What is CSS?</section>
+                    <!-- Slide 9.1 -->
+                    <section>
+                        <h3>Getting Started Pt1</h3>
+                        <ol>
+                            <li>
+                                <div class="fragment"
+                                    data-notes="Create a directory to store your project. In terminal, you can run the command mkdir to create a directory. I'm going to call mine 'chat-app'. You can name yours whatever you like.">
+                                    <p>Make a directory to store your project.</p>
+                                    <pre>
+                                        <code class="bash" data-trim contenteditable style="font-size: 18px;">
+                                            mkdir chat-app
+                                        </code>
+                                    </pre>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="fragment"
+                                    data-notes="Now navigate into that directory. In terminal, use the command cd to change directories. Inside the directory, create a new file called 'index.html.'">
+                                    <p>Navigate into that folder and create index.html.</p>
+                                    <pre>
+                                        <code class="bash" data-trim contenteditable style="font-size: 18px;">
+                                            cd chat-app
+                                            touch index.html
+                                        </code>
+                                    </pre>
+                                </div>
+                            </li>
+                        </ol>
+
+                        <aside class="notes" data-markdown>
+                            * Let's get our project started!
+                        </aside>
+                    </section>
+
+                    <!-- Slide 9.2 -->
+                    <section>
+                        <h3>Getting Started Pt2</h3>
+                        <img width="80%" src="https://github.com/jugonzal/gitbook-node-chat-tutorial/raw/master/assets/example-cropped.png" alt="Finished App">
+
+                        <aside class="notes" data-markdown>
+                            * Remember that our goal is to create an application that looks something like this.
+                            * Here is a description of what it contains:
+                              * A main area
+                              * Inside that there is the message history box
+                              * Inside the message history box is a list of messages
+                              * Below that is a form containing two input fields and a "Send" button. The first input field is for the initials of the person sending the message and the second is the message itself.
+                        </aside>
+                    </section>
+
+                    <!-- Slide 9.3 -->
+                    <section>
+                        <h3>Getting Started Pt3</h3>
+                        <ol start="3">
+                            <li>
+                                <div>
+                                    <p>Add the following HTML code to index.html.</p>
+                                    <pre>
+                                        <code class="html" data-trim data-line-numbers style="font-size: 16px; line-height: 18px">
+                                            &lt;!DOCTYPE html&gt;
+                                            &lt;html lang=&quot;en&quot;&gt;
+                                            &lt;head&gt;
+                                                &lt;title&gt;Chat App&lt;/title&gt;
+                                            &lt;/head&gt;
+                                            &lt;body&gt;
+                                                &lt;main&gt;
+                                                    &lt;ol id=&quot;history&quot;&gt;
+                                                        &lt;li&gt;KV says: hey there, DV&lt;/li&gt;
+                                                        &lt;li&gt;DV says: Hiii!!!&lt;/li&gt;
+                                                    &lt;/ol&gt;
+                                                    &lt;form&gt;
+                                                        &lt;input id=&quot;initials&quot;&gt;
+                                                        &lt;input id=&quot;message&quot;&gt;
+                                                        &lt;button&gt;Send&lt;/button&gt;
+                                                    &lt;/form&gt;
+                                                &lt;/main&gt;
+                                            &lt;/body&gt;
+                                            &lt;/html&gt;
+                                        </code>
+                                    </pre>
+                                </div>
+                            </li>
+                        </ol>
+
+                        <aside class="notes" data-markdown>
+                            * Based on that, we could create HTML that looks something like this.
+                            * Add this code to your index.html file.
+                        </aside>
+                    </section>
+
+                    <!-- Slide 9.4 -->
+                    <section>
+                        <h3>Getting Started Pt4</h3>
+                        <ol start="4">
+                            <li>
+                                <div>
+                                    <p>Open index.html in a browser.</p>
+                                </div>
+                            </li>
+                        </ol>
+                        <img src="https://s3.amazonaws.com/andydlindsay-portfolio/lighthouse/no-styles.png" alt="no styles" width="85%">
+
+                        <aside class="notes" data-markdown>
+                            * Now open your index.html in a browser window.
+                            * It should look something like this.
+                            * But this doesn't look very much like our final product, does it?
+                            * We have provided the browser with a good understanding of the structure of our Web page, but not how to present it.
+                            * The presentation rules are defined using CSS.
+                        </aside>
+                    </section>
+
+                </section>
+
+                <!-- Slide 10 -->
+                <section>
+                    <h3>CSS</h3>
+                    <p>Cascading Style Sheets</p>
+
+                    <aside class="notes" data-markdown>
+                        * If HTML is the bread and butter of a web page, then CSS is our butter knife.
+                        * Why is CSS the knife? Well, it controls what goes where. Using CSS we declare how we'd like the content (HTML) to be
+                        presented. CSS stands for Cascading Stylesheets. The key word here is "style", referring to the way something looks.
+                    </aside>
+                </section>
+
+                <!-- Slide 11 -->
                 <section>Style boilerplate</section>
 
                 <section>What is JavaScript?</section>
@@ -209,7 +333,8 @@
 		<script>
 			// More info about config & dependencies:
 			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
+            // - https://github.com/hakimel/reveal.js#dependencies
+            Reveal.configure({ slideNumber: true });
 			Reveal.initialize({
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
