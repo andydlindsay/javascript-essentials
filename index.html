@@ -297,16 +297,123 @@
 
                     <aside class="notes" data-markdown>
                         * If HTML is the bread and butter of a web page, then CSS is our butter knife.
-                        * Why is CSS the knife? Well, it controls what goes where. Using CSS we declare how we'd like the content (HTML) to be
-                        presented. CSS stands for Cascading Stylesheets. The key word here is "style", referring to the way something looks.
+                        * Why is CSS the knife? Well, it controls what goes where. 
+                        * Using CSS we declare how we'd like the content (HTML) to be presented. 
+                        * CSS stands for Cascading Stylesheets. The key word here is "style", referring to the way something looks.
                     </aside>
                 </section>
 
                 <!-- Slide 11 -->
-                <section>Style boilerplate</section>
+                <section>
+                    
+                    <!-- Slide 11.1 -->
+                    <section>
+                        <h3>Styling Pt1</h3>
+                        <ol>
+                            <li>
+                                <div>
+                                    <p>Create a file called style.css.</p>
+                                    <pre>
+                                        <code class="bash" data-trim contenteditable style="font-size: 18px;">
+                                            touch style.css
+                                        </code>
+                                    </pre>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="fragment" data-notes="Now let's add a link in the head of index.html that points to our stylesheet.">
+                                    <p>Add a link to style.css in the head of index.html.</p>
+                                    <pre>
+                                        <code class="html" data-trim contenteditable style="font-size: 16px; line-height: 18px" data-line-numbers="5">
+                                            &lt;!DOCTYPE html&gt;
+                                            &lt;html lang=&quot;en&quot;&gt;
+                                            &lt;head&gt;
+                                                &lt;title&gt;Chat App&lt;/title&gt;
+                                                &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+                                            &lt;/head&gt;
+                                        </code>
+                                    </pre>
+                                </div>
+                            </li>
+                        </ol>
 
-                <section>What is JavaScript?</section>
+                        <aside class="notes" data-markdown>
+                            * In your project directory, create a file to hold all of your styles called style.css.
+                        </aside>
+                    </section>
+
+                    <!-- Slide 11.2 -->
+                    <section>
+                        <h3>Styling Pt2</h3>
+                        <ol start="3">
+                            <li>
+                                <div>
+                                    <p>Add the following CSS code to style.css.</p>
+                                    <pre>
+                                        <code class="css" data-trim data-line-numbers style="font-size: 16px; line-height: 18px">
+                                            body {
+                                                background-color: white;
+                                                color: #303030;
+                                                font-family: 'Helvetica Neue', Arial, sans-serif;
+                                                font-size: 15px;
+                                                margin: 20px;
+                                            }
+                                            
+                                            main {
+                                                background-color: #f0f0f0;
+                                                border-radius: 6px;
+                                                box-shadow: 3px 3px 12px #c8c8c8;
+                                                margin: 20px auto;
+                                                max-width: 470px;
+                                                padding: 20px;
+                                            }
+                                        </code>
+                                    </pre>
+                                </div>
+                            </li>
+                        </ol>
+
+                        <aside class="notes" data-markdown>
+                            * I'm going to give you some time to try applying to styles to your app.
+                            * Here is some code to get you started.
+                        </aside>
+                    </section>
+
+                    <!-- Slide 11.3 -->
+                    <section>
+                        <h3>Styling Pt3</h3>
+                        <ol start="4">
+                            <li>
+                                <p>This is what we are trying to achieve:</p>
+                            </li>
+                        </ol>
+                        <img width="70%" src="https://github.com/jugonzal/gitbook-node-chat-tutorial/raw/master/assets/example-cropped.png" alt="Finished App">
+
+                        <aside class="notes" data-markdown>
+                            * This is the styling that we are trying to achieve.
+                            * However, if you want to, you can make your app look however you'd like.
+                            * Don't forget, the mentors are here to assist you. If you get stuck or have a question, raise your hand and someone will help you.
+                        </aside>
+                    </section>
+
+                </section>
+
+                <!-- Slide 12 -->
+                <section>
+                    <h3>JavaScript</h3>
+                    <p>The World's Most Popular Programming Language</p>
+
+                    <aside class="notes" data-markdown>
+                        * Let's add some behaviour to your webpage so it actually does something useful. That's where JavaScript comes in.
+                        * As we have watched the tech industry grow and mature, one particular theme has emerged, and that is the growing popularity of the JavaScript language and ecosystem.
+                        * Seeing organizations like Netflix and Paypal base their entire platforms on JavaScript, seeing the emergence of libraries and frameworks such as Angular and React. 
+                        * And also observing the sheer number of companies that are reaching for the toolkit that JavaScript offers to companies wanting to build cutting-edge products, has informed us on where the industry is going.
+                    </aside>
+                </section>
+
+                <!-- Slide 13 -->
                 <section>Client Side JS</section>
+                
                 <section>What is jQuery?</section>
                 <section>Wire up message submit button</section>
 
