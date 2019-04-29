@@ -1004,10 +1004,223 @@
                 </section>
 
                 <!-- Slide 19 -->
-                <section>Wire up socket connection</section>
+                <section>
 
-                <section>Complete App</section>
+                    <!-- Slide 19.1 -->
+                    <section>
+                        <h3>Adding Sockets Pt1</h3>
+                        <ol>
+                            <li>
+                                <div>
+                                    <p>Install Socket.IO.</p>
+                                    <pre>
+                                        <code class="bash" data-trim contenteditable style="font-size: 18px;">
+                                            npm install socket.io
+                                        </code>
+                                    </pre>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="fragment"
+                                    data-notes="Now let's add some code in server.js that will use this library. This code block should be placed before/above the line of code that starts with server.listen.">
+                                    <p>Add this code to server.js.</p>
+                                    <pre>
+                                        <code class="javascript" data-trim contenteditable data-line-numbers="3-9" style="font-size: 16px; line-height: 18px;">
+                                            app.use(express.static('client'));
+                                            
+                                            var io = require('socket.io')(server);
+                                            
+                                            io.on('connection', function (socket) {
+                                                socket.on('message', function (msg) {
+                                                    io.emit('message', msg);
+                                                });
+                                            });
+                                            
+                                            server.listen(8080, function () {
+                                                console.log('Chat server running');
+                                            });
+                                        </code>
+                                    </pre>
+                                </div>
+                            </li>
+                        </ol>
+                    
+                        <aside class="notes" data-markdown>
+                            * Run npm install socket.io to install the package.
+                        </aside>
+                    </section>
 
+                    <!-- Slide 19.2 -->
+                    <section>
+                        <h3>Adding Socket.io Pt2</h3>
+                        <ol start="3">
+                            <li>
+                                <div>
+                                    <p>Reference Socket.IO.</p>
+                                    <pre>
+                                        <code class="html" data-trim contenteditable data-line-numbers="2" style="font-size: 18px;">
+                                            &lt;script src=&quot;https://code.jquery.com/jquery-3.1.1.js&quot;&gt;&lt;/script&gt;
+                                            &lt;script src=&quot;/socket.io/socket.io.js&quot;&gt;&lt;/script&gt;
+                                            &lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;
+                                        </code>
+                                    </pre>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="fragment"
+                                    data-notes="Open app.js, our client-side JS code file, and let's add some code to send and receive messages from the browser. Add this code to the very top of the file. This is saying that socket is now a reference to the Socket.IO library.">
+                                    <p>Add this code to the top of app.js.</p>
+                                    <pre>
+                                        <code class="javascript" data-trim contenteditable data-line-numbers="1" style="font-size: 16px; line-height: 18px;">
+                                            var socket = io();
+                                            
+                                            $('form').on('submit', function () {
+                                        </code>
+                                    </pre>
+                                </div>
+                            </li>
+                        </ol>
+                    
+                        <aside class="notes" data-markdown>
+                            * Next, we need to add similar logic to the client app.
+                            * Open the index.html file and modify the script tags so that we also reference Socket.IO.
+                            * We can do this by adding one more script tag before our app.js script tag.
+                        </aside>
+                    </section>
+
+                    <!-- Slide 19.3 -->
+                    <section>
+                        <h3>Adding Socket.io Pt3</h3>
+                        <ol start="5">
+                            <li>
+                                <div>
+                                    <p>Update app.js with this code.</p>
+                                    <pre>
+                                        <code class="javascript" data-trim contenteditable data-line-numbers="2-3" style="font-size: 18px;">
+                                            var text = $('#message').val();
+                                            socket.emit('message', text);
+                                            $('#message').val('');
+                                            return false;
+                                        </code>
+                                    </pre>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="fragment"
+                                    data-notes="We're not done yet, we need to listen for messages that are received from the server and append them into the message list. Add this code at the bottom of the file. This part tells the browser that any time a message is received from the real time web socket connection with the server, create a new list item HTML element and append it to the message history ordered list.">
+                                    <p>Add this code to the bottom of app.js.</p>
+                                    <pre>
+                                        <code class="javascript" data-trim contenteditable data-line-numbers style="font-size: 16px; line-height: 18px;">
+                                            socket.on('message', function (msg) {
+                                                $('&lt;li&gt;').text(msg).appendTo('#history');
+                                            });
+                                        </code>
+                                    </pre>
+                                </div>
+                            </li>
+                        </ol>
+                    
+                        <aside class="notes" data-markdown>
+                            * In that same file, replace the line that starts with alert from before with this code.
+                            * This says to emit the textual message to the server instead of performing our temporary alert behaviour.
+                            * The second line in the code simply clears the input so that another message can be typed by the same user.
+                        </aside>
+                    </section>
+
+                    <!-- Slide 19.4 -->
+                    <section>
+                        <h3>Adding Socket.io Pt4</h3>
+                        <p>Final code for app.js</p>
+                        <pre>
+                            <code class="javascript" data-trim contenteditable data-line-numbers style="font-size: 16px; line-height: 18px;">
+                                var socket = io();
+                                
+                                $('form').on('submit', function () {
+                                    var text = $('#message').val();
+                                    socket.emit('message', text);
+                                    $('#message').val('');
+                                    return false;
+                                });
+                                
+                                socket.on('message', function (msg) {
+                                    $('&lt;li&gt;').text(msg).appendTo('#history');
+                                });
+                            </code>
+                        </pre>
+                    
+                        <aside class="notes" data-markdown>
+                            * The app.js file should look like this.
+                        </aside>
+                    </section>
+
+                    <!-- Slide 19.5 -->
+                    <section>
+                        <h3>Adding Socket.io Pt5</h3>
+                        <p>Final code for server.js</p>
+                        <pre>
+                            <code class="javascript" data-trim contenteditable data-line-numbers style="font-size: 16px; line-height: 18px;">
+                                var express = require('express');
+                                var app = express();
+                                
+                                var http = require('http');
+                                var server = http.Server(app);
+                                
+                                app.use(express.static('client'));
+                                
+                                var io = require('socket.io')(server);
+                                
+                                io.on('connection', function (socket) {
+                                    socket.on('message', function (msg) {
+                                        io.emit('message', msg);
+                                    });
+                                });
+                                
+                                server.listen(8080, function() {
+                                    console.log('Chat server running');
+                                });
+                            </code>
+                        </pre>
+                    
+                        <aside class="notes" data-markdown>
+                            * The server.js file should look like this.
+                        </aside>
+                    </section>
+
+                    <!-- Slide 19.6 -->
+                    <section>
+                        <h3>Adding Socket.io Pt6</h3>
+                        <ol start="7">
+                            <li>
+                                <div>
+                                    <p>Start the server.</p>
+                                    <pre>
+                                        <code class="bash" data-trim contenteditable style="font-size: 18px;">
+                                            node server.js
+                                        </code>
+                                    </pre>
+                                </div>
+                            </li>
+                        </ol>
+                    
+                        <aside class="notes" data-markdown>
+                            * Make sure all your files are saved and start the Node server running again.
+                        </aside>
+                    </section>
+
+                </section>
+
+                <!-- Slide 20 -->
+                <section>
+                    <h3>The Complete App</h3>
+                    <img src="https://davidvandusen.gitbooks.io/node-chat-tutorial/content/assets/finished.png" alt="finished app" width="80%">
+
+                    <aside class="notes" data-markdown>
+                        * That's right, it works! That's all it took.
+                        * The basic chat functionality works.
+                    </aside>
+                </section>
+
+                <!-- Slide 21 -->
                 <section>Stretch Features</section>
 
                 <section>Review</section>
